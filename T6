@@ -1,0 +1,10 @@
+PImage imgbackground;
+
+void setup(){
+size(600,600);
+  imgbackground = loadImage("background.svg");
+}
+
+void draw(){
+ image (imgbackground,0,0);
+  }
