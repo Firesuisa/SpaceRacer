@@ -1,0 +1,3 @@
+if(Yship=0){
+Yship=600;
+}
