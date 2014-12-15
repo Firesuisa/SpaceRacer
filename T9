@@ -1,0 +1,8 @@
+void keyPressed() {
+    if (keyCode == UP) {
+      Yship=Yship-1;
+    }
+    if (keyCode == DOWN) {
+      Yship=Yship+1;
+    }
+    }
