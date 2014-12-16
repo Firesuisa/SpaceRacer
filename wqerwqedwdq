@@ -1,0 +1,34 @@
+PImage imgbackground;
+PImage imgcohete;
+int Yship;
+int score = 0;
+
+
+void setup(){
+size (600,600);
+  imgbackground = loadImage("background.svg");
+  imgcohete = loadImage ("cohete.svg");
+    }
+
+void draw(){
+  image (imgbackground,0,0);
+image(imgcohete,0,0);
+text((score),20,20);
+if(Yship=0){
+score=score+1 &&  Yship=600;
+}
+if(counter=3600){
+score=0;
+}
+}
+  
+  
+  void keyPressed() {
+    if (keyCode == UP) {
+      Yship=Yship-1;
+    }
+    if (keyCode == DOWN) {
+      Yship=Yship+1;
+    }
+    }
+    
