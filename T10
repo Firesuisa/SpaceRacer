@@ -3,4 +3,3 @@ int score = 0;
 text((score),20,20);
 if(Yship=0){
 score=score+1;
-}
