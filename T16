@@ -12,8 +12,8 @@ size (600,600);
     }
 
 void draw(){
-  image (imgbackground,0,0);
-image(imgcohete,0,0);
+background(imgbackground);
+image(imgcohete,300,Yship);
 counter=counter+1;
 text((score),20,20);
 if(Yship==0){
@@ -25,6 +25,13 @@ Yship=600;
 if(counter==3600){
 score=0;
 }
+void keyPressed() {
+    if (keyCode == UP) {
+      Yship=Yship-5;
+    }
+    if (keyCode == DOWN) {
+      Yship=Yship+5;
+    }
 }
   
   
