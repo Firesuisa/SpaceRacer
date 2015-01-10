@@ -1,0 +1,78 @@
+ArrayList<aster> asteroids;
+int NUM_ASTEROIDES = 20;
+ 
+void setup() {
+  size(600, 600);
+ 
+  asteroids = new ArrayList<aster>();
+ 
+  int zero = 0;
+  while (zero < NUM_ASTEROIDES) {
+    asteroids.add(randomaster());
+    zero += 1;
+  }
+}
+ 
+void draw() {
+  background(0);
+ 
+  for (aster b : asteroids) {
+    b.bola();
+    b.position();
+  }
+}
+ 
+
+ 
+aster randomaster() {
+ 
+ 
+  return new aster(random(5, width), random(0.0, height), 
+  valueAroundZero(), 0, 
+  random(25, 76), 
+  color (255));
+}
+ 
+float valueAroundZero() {
+  
+  float buffer = random(0.9, 2.0);
+ 
+  if (random(100) < 50) 
+    buffer = buffer * -1; 
+ 
+  return buffer;
+}
+ 
+
+ 
+class aster {
+  float x, y; 
+  float dx;
+  float diameter = 10;
+  color c = 255;
+ 
+  aster(float abc_x, float abc_y, 
+  float abc_dx, float abc_dy, 
+  float diameter, color abc_c) {
+    x = abc_x;
+    y = abc_y;
+    dx = abc_dx;
+    c = abc_c;
+  }
+ 
+  void bola() {
+    fill(255);
+    noStroke();
+    ellipse(x, y, 10, 10);
+  }
+ 
+  void position() { 
+    x += dx;
+    if (x > width+20) {
+      dx= -1 * abs(dx);
+    }
+    else if (x < -20) {
+      dx= abs(dx);
+    }
+  }
+} 
