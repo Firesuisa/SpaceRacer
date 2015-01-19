@@ -1,0 +1,3 @@
+PImage imgasteroid;
+imgasteroid = loadImage ("asteroid.png");
+image(imgasteroid,x,y,astersize,astersize);
