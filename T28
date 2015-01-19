@@ -1,0 +1,3 @@
+textSize(32);
+text((score),10,40);
+fill(255);
