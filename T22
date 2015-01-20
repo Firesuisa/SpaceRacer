@@ -1,0 +1,3 @@
+if(Yship==0){
+score=score+1;
+Yship=600;
