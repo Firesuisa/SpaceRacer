@@ -1,0 +1,5 @@
+if (b.x < Xship+35 && b.x > Xship-15 && 
+b.y-60 < Yship-60 && b.y > Yship-70) {
+Yship=600;//derecha, izquierda, abajo, arriba
+score=0;
+}
