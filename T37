@@ -1,0 +1,5 @@
+        if (keyCode == LEFT) {
+      setup();
+      counter=0;
+      score=1;
+    }
