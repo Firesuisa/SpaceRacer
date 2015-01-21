@@ -1,0 +1,4 @@
+      if(score==4){
+    NUM_ASTEROIDES = 35;
+    setup();
+  }
