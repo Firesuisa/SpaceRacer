@@ -1,0 +1,10 @@
+     if(score>=6){
+       score=6;
+       counter=5;
+       background(0);
+       NUM_ASTEROIDES = 0;
+    setup();
+    textSize(32);
+text("You won",90,40);
+fill(255);
+           }
