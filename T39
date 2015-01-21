@@ -1,0 +1,8 @@
+Minim minim;
+AudioPlayer danub;
+
+void setup(){
+ minim = new Minim (this);
+ danub = minim.loadFile("danub.mp3");
+ danub.loop();
+ }
