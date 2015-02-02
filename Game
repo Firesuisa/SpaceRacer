@@ -15,11 +15,14 @@ PImage imgasteroid;
 int Yship;
 int score;
 int counter;
-int NUM_ASTEROIDES = 20;
+int NUM_ASTEROIDES;
 int astersize = 20;
 int Xship=275;
 PImage imgbilly;
 int instru;
+int intro=1;
+PImage imgintro;
+int vida=20;
 
 
 void setup(){
@@ -27,6 +30,7 @@ size (600,600);
   imgbackground = loadImage("background.png");
   imgcohete = loadImage ("cohete.png");
   imgasteroid = loadImage ("asteroid.png");
+  imgintro = loadImage ("ent.png");
 asteroids = new ArrayList<aster>();
  
   int bla = 0;
@@ -37,6 +41,7 @@ asteroids = new ArrayList<aster>();
  minim = new Minim (this);
  danub = minim.loadFile("danub.mp3");
  danub.play();
+ 
 
 }
 void draw(){
@@ -52,6 +57,10 @@ text("level", 10, 40);
 fill(255);
 text("time", 530, 80); 
 fill(255);
+if(intro==1){
+background(imgintro);
+counter=0;
+ }
 if(instru==1){
 textSize(20);
 text("Press 'R' to restart, UP and DOWN to move the rocket",20,100);
@@ -83,28 +92,31 @@ Yship=600;
     setup();
   }
 }
-     if(score>=6 && score<1000){
-       score=6;
-       counter=5;
-       background(0);
-       NUM_ASTEROIDES = 0;
-    setup();
-    textSize(32);
+if(score>=6 && score<1000){
+score=6;
+counter=5;
+background(0);
+NUM_ASTEROIDES = 0;
+setup();
+textSize(32);
 text("You win",90,40);
 fill(255);
-           }
+}
 
 if(counter>=3600){
-       score=1111111;
-       counter=50000;
-       background(0);
-       NUM_ASTEROIDES = 0;
-    setup();
-    textSize(32);
-    textAlign(CENTER);
+score=1111111;
+counter=50000;
+background(0);
+NUM_ASTEROIDES = 0;
+setup();
+textSize(32);
+textAlign(CENTER);
 text("Game over, press 'R' to restart",300,300);
 fill(255);
 danub.close();
+}
+if(vida==0){
+counter=4000;
 }
 
  for (aster b : asteroids) {
@@ -113,9 +125,11 @@ danub.close();
     if (b.x < Xship+35 && b.x > Xship-15 && 
 b.y-60 < Yship-60 && b.y > Yship-70) {
 Yship=600;//derecha, izquierda, abajo, arriba
+vida=vida-1;
 }
   }
-
+line(0,5,vida*30,5);
+stroke(255);
 }
  
 aster random12() {
@@ -174,16 +188,20 @@ void keyPressed() {
     if (keyCode == DOWN) {
       Yship=Yship+8;
     }
-        if (key=='r') {
-      counter=0;
-      score=1;
-      Yship=600;
-      NUM_ASTEROIDES = 20;
-      textAlign(LEFT);
-       danub.play();
-            setup();
+    if (key=='r') {
+    counter=0;
+    score=1;
+    Yship=600;
+    NUM_ASTEROIDES = 20;
+    textAlign(LEFT);
+    danub.play();
+    vida=20;
+    setup();
     }
     if (keyCode == ENTER ){
       instru=instru+1;
+  }
+    if (keyPressed = true ){
+      intro=intro+1;
   }
 }
